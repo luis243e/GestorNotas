@@ -58,13 +58,14 @@ public class Main {
                 case 1:
         System.out.println("Ingrese el nombre del estudiante a buscar");
         String nombre = leer.next();
-
+        // ARREGLAR: CUANDO EL NOMBRE ES DISTINTO EL PROGRAMA SE DETIENE
         // Por medio del medio de la libreria stream buscamos a un estudiante por el nombre
         Estudiantes estudianteEncontrado = estudiantes.stream()
                 .filter(
-                        (estudiante) -> estudiante.getNombre() == nombre)
-                .findFirst()
-                .orElse(null);
+                        (estudiante) -> estudiante.getNombre().equalsIgnoreCase(nombre))
+                .findFirst().get();
+
+                        System.out.println(estudianteEncontrado.calcularPromedio());
                     break;
                 case 2:
                     break;
