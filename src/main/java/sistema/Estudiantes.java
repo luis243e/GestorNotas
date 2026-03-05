@@ -1,11 +1,12 @@
 package sistema;
 
+
 public class Estudiantes {
-    public String nombre;
-    public int edad;
-    public double nota;
-    public double nota2;
-    public double nota3;
+    private String nombre;
+    private int edad;
+    private double nota;
+    private double nota2;
+    private double nota3;
 
     // Creamos un constructor vacio el cual sera el default
     public Estudiantes(){
@@ -26,13 +27,47 @@ public class Estudiantes {
         return (this.nota + this.nota2 + this.nota3) / 3;
     }
 
-    // Metodo que retorna un texto si el estudiante aprobo o no
-    public Boolean aprobado(){
-        if(calcularPromedio() >= 3){
-            return  true;
-        } else {
-            return false;
-        }
+    // Metodo que retorna un texto si el estudiante aprobo o no  // refornamdo para mejor claridad
+    public boolean aprobado(){
+        return calcularPromedio() >= 3;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+
+    public double getNota() {
+        return nota;
+    }
+
+    public void setNota(double nota) {
+        this.nota = nota;
+    }
+
+    public double getNota2() {
+        return nota2;
+    }
+
+    public void setNota2(double nota2) {
+        this.nota2 = nota2;
+    }
+
+    public double getNota3() {
+        return nota3;
+    }
+
+    public void setNota3(double nota3) {
+        this.nota3 = nota3;
+    }
 }
