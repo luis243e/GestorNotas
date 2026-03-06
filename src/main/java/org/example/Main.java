@@ -58,18 +58,33 @@ public class Main {
                 case 1:
         System.out.println("Ingrese el nombre del estudiante a buscar");
         String nombre = leer.next();
-        // ARREGLAR: CUANDO EL NOMBRE ES DISTINTO EL PROGRAMA SE DETIENE
         // Por medio del medio de la libreria stream buscamos a un estudiante por el nombre
         Estudiantes estudianteEncontrado = estudiantes.stream()
                 .filter(
                         (estudiante) -> estudiante.getNombre().equalsIgnoreCase(nombre))
-                .findFirst().get();
-
-                        System.out.println(estudianteEncontrado.calcularPromedio());
+                .findFirst().orElse(null);
+                        if (estudianteEncontrado != null){
+                            System.out.println("Estudiante encontrado");
+                            System.out.println("Su promedio es: " + estudianteEncontrado.calcularPromedio());
+                        } else{
+                            System.out.println("estudiante no encontrado");
+                        }
                     break;
                 case 2:
                     break;
                 case 3:
+                    System.out.println("ESTA ES UNA CALCULADORA DE NOTAS");
+                    System.out.println("Ingrese su primera nota");
+                    double nota = leer.nextDouble();
+                    System.out.println("Ingrese su segunda nota");
+                    double nota2 = leer.nextDouble();
+                    System.out.println("Ingrese su tercera nota");
+                    double nota3 = leer.nextDouble();
+                    // Usamos una instancia local para llamar al metodo calcularNota.
+                    Estudiantes calculadoraNotas = new Estudiantes();
+                    double promedioCalculado = calculadoraNotas.calcularNota(nota, nota2, nota3);
+                    System.out.println("Su promedio es: " + promedioCalculado);
+                    System.out.println("Aprobo: " + (promedioCalculado >= 3));
                     break;
                 case 0:
                     System.exit(0);

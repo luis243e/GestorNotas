@@ -32,6 +32,10 @@ public class Estudiantes {
         return calcularPromedio() >= 3;
     }
 
+    public double calcularNota(double nota, double nota2, double nota3){
+        return (nota + nota2 + nota3) / 3;
+    }
+
     public String getNombre() {
         return nombre;
     }
