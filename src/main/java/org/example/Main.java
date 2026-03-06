@@ -71,8 +71,25 @@ public class Main {
                         }
                     break;
                 case 2:
+                    // Usamos la misma logica que el anterior caso
+                    System.out.println("Ingrese el nombre del estudiante a buscar");
+                    String nombreAprobado = leer.next();
+                    Estudiantes estudianteAprobado = estudiantes.stream()
+                            .filter(estudiante -> estudiante.getNombre().equalsIgnoreCase(nombreAprobado))
+                            .findFirst().orElse(null);
+                    if (estudianteAprobado != null) {
+                        System.out.println("Estudiante encontrado: " + estudianteAprobado.getNombre());
+                        if (estudianteAprobado.aprobado()) {
+                            System.out.println("El estudiante APROBÓ el curso con promedio: " + estudianteAprobado.calcularPromedio());
+                        } else {
+                            System.out.println("El estudiante NO aprobó el curso con promedio: " + estudianteAprobado.calcularPromedio());
+                        }
+                    } else {
+                        System.out.println("Estudiante no encontrado");
+                    }
                     break;
                 case 3:
+                    // pedimos los datos de las notas para luego realizar el metodo
                     System.out.println("ESTA ES UNA CALCULADORA DE NOTAS");
                     System.out.println("Ingrese su primera nota");
                     double nota = leer.nextDouble();
